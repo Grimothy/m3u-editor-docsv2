@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
+import GitHubRelease from '@site/src/components/GitHubRelease';
+import ReleaseVersions from '@site/src/components/ReleaseVersions';
 import styles from './index.module.css';
 
 export default function Home() {
@@ -44,12 +46,34 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="container">
+          <ReleaseVersions />
+        </section>
+
+        <section className="container" style={{padding: '2rem 0'}}>
+          <div className="row">
+            <div className="col col--6">
+              <GitHubRelease />
+            </div>
+            <div className="col col--6">
+              <div className={styles.featureCard}>
+                <h3>🚀 Quick Start</h3>
+                <p>Get up and running with M3U Editor in minutes using Docker or manual installation.</p>
+                <Link className="button button--primary button--sm" to="/docs/intro">Get Started</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="container" style={{padding: '2rem 0'}}>
           <h2 style={{textAlign: 'center'}}>Screenshots</h2>
           <div className={styles.screenshots}>
             <img src="https://raw.githubusercontent.com/sparkison/m3u-editor/master/screenshots/channel-editing.png" alt="Channel editor" />
             <img src="https://raw.githubusercontent.com/sparkison/m3u-editor/master/screenshots/series-mgmt.png" alt="Series management" />
             <img src="https://raw.githubusercontent.com/sparkison/m3u-editor/master/screenshots/in-app-playlist-epg-preview.png" alt="Playlist EPG preview" />
+            <img src="https://raw.githubusercontent.com/sparkison/m3u-editor/master/screenshots/in-app-playlist-epg-playback.png" alt="EPG preview with playback" />
+            <img src="https://raw.githubusercontent.com/sparkison/m3u-editor/master/screenshots/proxy-monitor.png" alt="Proxy stats" />
+            <img src="https://raw.githubusercontent.com/sparkison/m3u-editor/master/screenshots/api.png" alt="API interface" />
           </div>
         </section>
       </main>
