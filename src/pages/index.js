@@ -15,7 +15,7 @@ export default function Home() {
           <h1 className="hero__title">M3U Editor</h1>
           <p className="hero__subtitle">A full-featured IPTV editor — EPG, Xtream API output, series & playlist management, and more.</p>
           <div className={styles.buttons}>
-            <Link className="button button--primary button--lg" to="/docs/about/getting-started">Docker Quick Start</Link>
+            <Link className="button button--primary button--lg" to="/docs/intro">Get Started</Link>
             <Link className="button button--secondary button--lg" to="/docs/intro" style={{marginLeft: 12}}>Documentation</Link>
             <a className="button button--secondary button--lg" href="https://github.com/sparkison/m3u-editor" style={{marginLeft: 12}}>GitHub</a>
           </div>

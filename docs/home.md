@@ -46,5 +46,4 @@ slug: /home
 ## Quick Links
 
 - [Documentation](/docs/intro)
-- [GitHub](https://github.com/your-org/m3u-editor)
-- [Contact Us](/docs/contact)
+- [GitHub](https://github.com/sparkison/m3u-editor)
