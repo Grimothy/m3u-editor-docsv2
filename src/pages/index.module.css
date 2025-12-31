@@ -8,16 +8,72 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  /* Softer gradient hero that matches logo */
+  background: linear-gradient(135deg, rgba(244,63,94,0.85) 0%, rgba(179,80,159,0.75) 45%, rgba(99,102,241,0.8) 100%);
+  color: white;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+/* Overlay to slightly mute the background and improve readability */
+.heroBanner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
+  pointer-events: none;
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
+/* Improve title readability on gradient */
+.heroBanner .hero__title {
+  text-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+.heroBanner .hero__subtitle {
+  text-shadow: 0 4px 12px rgba(0,0,0,0.25);
   justify-content: center;
+}
+
+/* New styles for basic home layout */
+.logo {
+  width: 120px;
+  display: block;
+  margin: 0 auto 1rem auto;
+  border-radius: 9999px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.92);
+  padding: 8px;
+  /* slight transparency to reduce glare */
+  opacity: 0.98;
+  transform: translateZ(0);
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.featureCard {
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(34, 34, 34, 0.04);
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(15,23,42,0.06);
+}
+
+.featureCard h3 { margin-top: 0; color: var(--ifm-color-primary-dark); }
+.featureCard p { color: #475569; }
+
+/* Screenshots gallery */
+.screenshots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  align-items: center;
+}
+.screenshots img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.06);
+  border: 1px solid rgba(34,34,34,0.04);
 }
