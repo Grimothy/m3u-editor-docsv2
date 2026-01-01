@@ -5,7 +5,9 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import GitHubRelease from '@site/src/components/GitHubRelease';
 import ReleaseVersions from '@site/src/components/ReleaseVersions';
+import ScreenshotsCarousel from '../components/ScreenshotsCarousel';
 import styles from './index.module.css';
+import DownloadBadge from '../components/DownloadBadge';
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
@@ -16,6 +18,9 @@ export default function Home() {
           <img src="/img/logo.svg" alt="logo" className={styles.logo} />
           <h1 className="hero__title">M3U Editor</h1>
           <p className="hero__subtitle">A full-featured IPTV editor — EPG, Xtream API output, series & playlist management, and more.</p>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
+            <DownloadBadge />
+          </div>
           <div className={styles.buttons}>
             <Link className="button button--primary button--lg" to="/docs/intro">Quick Start</Link>
             <Link className="button button--secondary button--lg" to="/docs/intro" style={{marginLeft: 12}}>Documentation</Link>
@@ -58,14 +63,7 @@ export default function Home() {
 
         <section className={clsx('container', styles.fadeIn)} style={{padding: '2.5rem 0'}}>
           <h2 className={styles.screenshotsHeading}>Screenshots</h2>
-          <div className={styles.screenshots}>
-            <img src="https://raw.githubusercontent.com/sparkison/m3u-editor/master/screenshots/channel-editing.png" alt="Channel editor" />
-            <img src="https://raw.githubusercontent.com/sparkison/m3u-editor/master/screenshots/series-mgmt.png" alt="Series management" />
-            <img src="https://raw.githubusercontent.com/sparkison/m3u-editor/master/screenshots/in-app-playlist-epg-preview.png" alt="Playlist EPG preview" />
-            <img src="https://raw.githubusercontent.com/sparkison/m3u-editor/master/screenshots/in-app-playlist-epg-playback.png" alt="EPG preview with playback" />
-            <img src="https://raw.githubusercontent.com/sparkison/m3u-editor/master/screenshots/proxy-monitor.png" alt="Proxy stats" />
-            <img src="https://raw.githubusercontent.com/sparkison/m3u-editor/master/screenshots/api.png" alt="API interface" />
-          </div>
+          <ScreenshotsCarousel />
         </section>
       </main>
     </Layout>
