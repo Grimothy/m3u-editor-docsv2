@@ -45,6 +45,30 @@
   transform: translateZ(0);
 }
 
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .heroBanner {
+    padding: 2rem 0.5rem;
+  }
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .buttons .button {
+    width: 100%;
+    margin-left: 0 !important;
+    min-height: 44px;
+    font-size: 1rem;
+  }
+}
+
 .featureGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -75,6 +99,33 @@
 
 .featureCard h3 { margin-top: 0; color: var(--ifm-color-primary); }
 .featureCard p { color: #cbd5e1; }
+
+.featureIcon {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary-light);
+  filter: drop-shadow(0 2px 8px rgba(99,102,241,0.15));
+}
+
+/* Fade-in animation for modern feel */
+.fadeIn {
+  opacity: 0;
+  transform: translateY(32px);
+  animation: fadeInUp 0.8s cubic-bezier(.4,0,.2,1) 0.1s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* More vertical spacing between sections */
+.container {
+  margin-bottom: 2.5rem;
+}
 
 /* Screenshots gallery */
 .screenshots {

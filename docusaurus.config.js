@@ -81,7 +81,12 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Documentation',
+          },
+          {
+            href: 'https://discord.gg/rS3abJ5dz7',
+            label: 'Discord',
+            position: 'right',
           },
           {
             href: 'https://github.com/sparkison/m3u-editor',
@@ -106,16 +111,8 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
+                href: 'https://discord.gg/rS3abJ5dz7',
               },
             ],
           },
@@ -124,7 +121,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/sparkison/m3u-editor',
               },
             ],
           },

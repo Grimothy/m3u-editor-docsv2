@@ -25,34 +25,38 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="container" style={{padding: '3rem 0'}}>
+        <section className={clsx('container', styles.fadeIn)} style={{padding: '3rem 0'}}>
           <h2 className={styles.featuresHeading}>Features</h2>
           <div className={styles.featureGrid}>
             <article className={styles.featureCard}>
+              <span className={styles.featureIcon} aria-hidden="true">📺</span>
               <h3>Full EPG Support</h3>
               <p>XMLTV, remote EPG URLs, and Schedules Direct integration for accurate program data.</p>
             </article>
             <article className={styles.featureCard}>
+              <span className={styles.featureIcon} aria-hidden="true">🔗</span>
               <h3>Xtream & M3U Output</h3>
               <p>Export playlists as M3U/M3U8 or use the Xtream API to serve streams.</p>
             </article>
             <article className={styles.featureCard}>
+              <span className={styles.featureIcon} aria-hidden="true">📂</span>
               <h3>Series & Playlist Management</h3>
               <p>Manage series, save .strm files, and perform post-processing scripts or webhooks.</p>
             </article>
             <article className={styles.featureCard}>
+              <span className={styles.featureIcon} aria-hidden="true">⚡</span>
               <h3>Multiple Deploy Modes</h3>
               <p>Run modular (Nginx/Caddy) or all-in-one Docker deployments with examples included.</p>
             </article>
           </div>
         </section>
 
-        <section className="container">
+        <section className={clsx('container', styles.fadeIn)}>
           <ReleaseVersions />
         </section>
 
 
-        <section className="container" style={{padding: '2rem 0'}}>
+        <section className={clsx('container', styles.fadeIn)} style={{padding: '2.5rem 0'}}>
           <h2 className={styles.screenshotsHeading}>Screenshots</h2>
           <div className={styles.screenshots}>
             <img src="https://raw.githubusercontent.com/sparkison/m3u-editor/master/screenshots/channel-editing.png" alt="Channel editor" />
