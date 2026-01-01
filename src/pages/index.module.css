@@ -51,6 +51,13 @@
   gap: 1rem;
 }
 
+.featuresHeading {
+  text-align: center;
+  color: #f1f5f9;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
 .featureCard {
   background: rgba(30, 41, 59, 0.8);
   border: 1px solid rgba(71, 85, 105, 0.3);
@@ -90,4 +97,11 @@
 .screenshots img:hover {
   transform: scale(1.05);
   box-shadow: 0 12px 32px rgba(15,23,42,0.12);
+}
+
+.screenshotsHeading {
+  text-align: center;
+  color: #f1f5f9;
+  margin-bottom: 2rem;
+  font-size: 2rem;
 }

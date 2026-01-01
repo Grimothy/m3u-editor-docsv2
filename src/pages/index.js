@@ -17,7 +17,7 @@ export default function Home() {
           <h1 className="hero__title">M3U Editor</h1>
           <p className="hero__subtitle">A full-featured IPTV editor — EPG, Xtream API output, series & playlist management, and more.</p>
           <div className={styles.buttons}>
-            <Link className="button button--primary button--lg" to="/docs/intro">Get Started</Link>
+            <Link className="button button--primary button--lg" to="/docs/intro">Quick Start</Link>
             <Link className="button button--secondary button--lg" to="/docs/intro" style={{marginLeft: 12}}>Documentation</Link>
             <a className="button button--secondary button--lg" href="https://github.com/sparkison/m3u-editor" style={{marginLeft: 12}}>GitHub</a>
           </div>
@@ -26,6 +26,7 @@ export default function Home() {
 
       <main>
         <section className="container" style={{padding: '3rem 0'}}>
+          <h2 className={styles.featuresHeading}>Features</h2>
           <div className={styles.featureGrid}>
             <article className={styles.featureCard}>
               <h3>Full EPG Support</h3>
@@ -50,23 +51,9 @@ export default function Home() {
           <ReleaseVersions />
         </section>
 
-        <section className="container" style={{padding: '2rem 0'}}>
-          <div className="row">
-            <div className="col col--6">
-              <GitHubRelease />
-            </div>
-            <div className="col col--6">
-              <div className={styles.featureCard}>
-                <h3>🚀 Quick Start</h3>
-                <p>Get up and running with M3U Editor in minutes using Docker or manual installation.</p>
-                <Link className="button button--primary button--sm" to="/docs/intro">Get Started</Link>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <section className="container" style={{padding: '2rem 0'}}>
-          <h2 style={{textAlign: 'center'}}>Screenshots</h2>
+          <h2 className={styles.screenshotsHeading}>Screenshots</h2>
           <div className={styles.screenshots}>
             <img src="https://raw.githubusercontent.com/sparkison/m3u-editor/master/screenshots/channel-editing.png" alt="Channel editor" />
             <img src="https://raw.githubusercontent.com/sparkison/m3u-editor/master/screenshots/series-mgmt.png" alt="Series management" />
