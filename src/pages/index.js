@@ -34,8 +34,8 @@ export default function Home() {
           <h2 className={styles.featuresHeading}>Features</h2>
           <div className={styles.featureGrid}>
             <article className={styles.featureCard}>
-              <span className={styles.featureIcon} aria-hidden="true" style={{ width: 88, height: 88, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '0.75rem', marginLeft: 'auto', marginRight: 'auto' }}>
-                <svg width="68" height="68" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <span className={styles.featureIcon} aria-hidden="true">
+                <svg width="100%" height="100%" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <linearGradient id="heroAccentA" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" style={{ stopColor: '#f43f5e', stopOpacity: 1 }} />
@@ -50,7 +50,7 @@ export default function Home() {
                   </defs>
 
                   {/* TV body */}
-                  <rect x="14" y="16" width="100" height="70" rx="12" ry="12" fill="transparent" stroke="url(#heroAccentA)" strokeWidth="2.75" />
+                  <rect x="14" y="16" width="100" height="70" rx="12" ry="12" fill="transparent" stroke="url(#heroAccentA)" strokeWidth="3.5" />
                   {/* Screen */}
                   <rect x="22" y="24" width="84" height="56" rx="8" ry="8" fill="transparent" />
 
@@ -75,15 +75,15 @@ export default function Home() {
                   <circle cx="100" cy="69" r="3" fill="#6366f1" />
 
                   {/* Stand */}
-                  <path d="M 54 86 L 46 102 Q 46 106 52 106 L 76 106 Q 82 106 84 102 L 76 86" fill="transparent" stroke="url(#heroAccentA)" strokeWidth="2.75" strokeOpacity="1" />
+                  <path d="M 54 86 L 46 102 Q 46 106 52 106 L 76 106 Q 82 106 84 102 L 76 86" fill="transparent" stroke="url(#heroAccentA)" strokeWidth="3.5" strokeOpacity="1" />
                 </svg>
               </span>
               <h3>Full EPG Support</h3>
               <p>XMLTV, remote EPG URLs, and Schedules Direct integration for accurate program data.</p>
             </article>
             <article className={styles.featureCard}>
-              <span className={styles.featureIcon} aria-hidden="true" style={{ width: 88, height: 88, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg width="68" height="68" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+              <span className={styles.featureIcon} aria-hidden="true">
+                <svg width="100%" height="100%" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
                   <defs>
                     <linearGradient id="serverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" style={{ stopColor: '#f43f5e', stopOpacity: 1 }} />
@@ -102,9 +102,9 @@ export default function Home() {
 
                   {/* stacked server */}
                   <g transform="translate(28,20)">
-                    <rect x="0" y="0" width="60" height="20" rx="6" fill="transparent" stroke="url(#serverGrad)" strokeWidth="2.5" />
-                    <rect x="0" y="26" width="60" height="20" rx="6" fill="transparent" stroke="url(#serverGrad)" strokeWidth="2.5" />
-                    <rect x="0" y="52" width="60" height="20" rx="6" fill="transparent" stroke="url(#serverGrad)" strokeWidth="2.5" />
+                    <rect x="0" y="0" width="60" height="20" rx="6" fill="transparent" stroke="url(#serverGrad)" strokeWidth="3.2" />
+                    <rect x="0" y="26" width="60" height="20" rx="6" fill="transparent" stroke="url(#serverGrad)" strokeWidth="3.2" />
+                    <rect x="0" y="52" width="60" height="20" rx="6" fill="transparent" stroke="url(#serverGrad)" strokeWidth="3.2" />
 
                     {/* uniform front bezels: slot + indicator */}
                     {/* top panel */}
@@ -141,8 +141,8 @@ export default function Home() {
               <p>Export playlists as M3U/M3U8 or use the Xtream API to serve streams.</p>
             </article>
             <article className={styles.featureCard}>
-              <span className={styles.featureIcon} aria-hidden="true" style={{ width: 88, height: 88, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <svg width="68" height="68" viewBox="0 0 200 200" aria-hidden="true" role="img">
+              <span className={styles.featureIcon} aria-hidden="true">
+                <svg width="100%" height="100%" viewBox="0 0 200 200" aria-hidden="true" role="img">
                   <defs>
                     <linearGradient id="featureGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" style={{ stopColor: '#f43f5e', stopOpacity: 1 }} />
@@ -162,7 +162,25 @@ export default function Home() {
               <p>Manage series, save .strm files, and perform post-processing scripts or webhooks.</p>
             </article>
             <article className={styles.featureCard}>
-              <span className={styles.featureIcon} aria-hidden="true">⚡</span>
+              <span className={styles.featureIcon} aria-hidden="true">
+                <svg width="100%" height="100%" viewBox="0 0 32 32" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="deployGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style={{ stopColor: '#f43f5e', stopOpacity: 1 }} />
+                      <stop offset="50%" style={{ stopColor: '#b3509f', stopOpacity: 1 }} />
+                      <stop offset="100%" style={{ stopColor: '#6366f1', stopOpacity: 1 }} />
+                    </linearGradient>
+                    <filter id="deployShadow" x="-50%" y="-50%" width="200%" height="200%">
+                      <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#000" floodOpacity="0.16" />
+                    </filter>
+                  </defs>
+                  <g filter="url(#deployShadow)" transform="translate(4, 4)">
+                    <path d="M12.4,24c-0.2,0-0.4,0-0.5-0.1c-0.6-0.2-1.1-0.7-1.3-1.4L10,19.2c-0.1-0.5-0.3-0.9-0.6-1.2l-3.3-3.3 c-0.3-0.3-0.7-0.5-1.2-0.6l-3.4-0.7c-0.7-0.1-1.2-0.6-1.4-1.3c-0.2-0.6,0-1.3,0.5-1.8l2.6-2.6C4,6.9,5.1,6.3,6.3,6.3h3.1 c0.8-0.9,1.6-1.8,2.4-2.6C17.5-2,22.7,0.5,22.9,0.6l0.3,0.2l0.2,0.3c0.1,0.2,2.5,5.5-3.1,11.1c-0.9,0.9-1.8,1.7-2.6,2.4v3.1 c0,1.2-0.5,2.2-1.3,3.1l-2.6,2.6C13.4,23.8,12.9,24,12.4,24z M2.2,11.5l3.1,0.6c0.8,0.2,1.6,0.6,2.2,1.2l3.3,3.3 c0.6,0.6,1,1.4,1.2,2.2l0.6,3.1l2.4-2.4c0.4-0.4,0.7-1,0.7-1.6v-4l0.4-0.3c1-0.8,1.9-1.7,2.9-2.6c3.9-3.9,3.2-7.4,2.9-8.5 c-1.1-0.4-4.6-1-8.5,2.9c-0.9,0.9-1.8,1.9-2.6,2.9l-0.3,0.4h-4c-0.6,0-1.2,0.2-1.6,0.7L2.2,11.5z M2.1,24L2.1,24 c-0.8,0-1.3-0.1-1.6-0.4c-0.2-0.2-0.7-0.7-0.3-3.1c0.2-1.1,0.5-2.6,1.3-3.4c1.5-1.5,4-1.5,5.4,0c1.5,1.5,1.5,3.9,0,5.4 C5.8,23.7,3.3,24,2.1,24z M4.3,18c-0.5,0-1,0.2-1.3,0.5C2.4,19.1,2.1,21,2.1,22c1,0,2.9-0.3,3.5-0.8c0.7-0.7,0.7-1.9,0-2.6 C5.2,18.2,4.7,18,4.3,18z" fill="transparent" stroke="url(#deployGrad)" strokeWidth="1.2" strokeLinejoin="round" />
+                    <circle cx="17" cy="7" r="2" fill="transparent" stroke="url(#deployGrad)" strokeWidth="0.7" strokeOpacity="0.85" />
+
+                  </g>
+                </svg>
+              </span>
               <h3>Multiple Deploy Modes</h3>
               <p>Run modular (Nginx/Caddy) or all-in-one Docker deployments with examples included.</p>
             </article>
