@@ -21,7 +21,7 @@ const RELEASE_VERSIONS = [
   {
     type: 'Experimental',
     version: 'v0.8.27-exp',
-    description: 'Cutting-edge experimental features (use with caution)',
+    description: 'Cutting-edge experimental features (use with caution) -- There be dragons!',
     status: 'experimental',
     downloadUrl: 'https://github.com/sparkison/m3u-editor/releases',
     color: '#f87171'
