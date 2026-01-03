@@ -1,6 +1,9 @@
 ---
 description: Documentation home for m3u-editor
-title: Home
+tags:
+  - Getting Started
+title: About
+sidebar_position: 0
 ---
 
 <div style={{ textAlign: 'center', padding: '0 0 2rem 0' }}>
@@ -30,7 +33,7 @@ Below is a list of some of the features available in M3U Editor:
 * **Self-hosted freedom** — Total control in your hands.
 * **HDHR support** — Easily connect to your favorite clients, like Plex, Emby, JellyFin and more.
 
-## Prerequisites
+## 📋Prerequisites
 
 * Docker installed on your system.
 * Xtream codes API login info or M3U URLs/files containing an M3U playlist of video streams.
