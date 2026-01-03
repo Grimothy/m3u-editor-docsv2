@@ -21,7 +21,7 @@ This documentation provides step-by-step guides, practical examples, and referen
 
 ## 🧩Feature list
 
-Below is a list of some of the features available M3U Editor:
+Below is a list of some of the features available in M3U Editor:
 
 * **Stream Collection & Management** — Import, organize, and serve IPTV streams with zero hassle.
 * **EPG Integration** — Manage Electronic Program Guides like a pro.
