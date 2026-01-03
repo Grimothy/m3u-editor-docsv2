@@ -8,7 +8,12 @@ const outFile = path.join(outDir, 'screenshots.js');
 
 function humanize(filename) {
   const name = filename.replace(/\.[^/.]+$/, '');
-  return name.replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+  // Preserve the product name as "M3U-Editor" and humanize the rest
+  let s = name.replace(/_/g, ' ');
+  s = s.replace(/m3u[ -]?editor/ig, '<<M3U_EDITOR>>');
+  s = s.replace(/-/g, ' ');
+  s = s.replace(/\b\w/g, (c) => c.toUpperCase());
+  return s.replace('<<M3U_EDITOR>>', 'M3U-Editor');
 }
 
 function gather() {
