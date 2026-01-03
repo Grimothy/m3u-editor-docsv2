@@ -22,6 +22,10 @@ M3U Editor Defaults to **Port 36400**. -- **This can be changed in the docker-co
 
 Multiple concurrent users. Stream pooling: one provider subscription serves multiple viewers via shared connection. Separate containers for app, proxy, and Redis cache.
 
+
+[Jump to example](#deployment-recommended)
+
+
 **M3U-Proxy Embedded**
 
 Single container. Same pooling concept, no Redis. Good for light to moderate use.
@@ -45,6 +49,93 @@ M3U Editor is available in the following versions:
 | **[sparkison/m3u-editor:experimental](https://github.com/sparkison/m3u-editor/tree/experimental)** | Bleeding edge features -- **There be dragons here** | docker pull sparkison/m3u-editor:experimental |
 
 ## 🐳 Deployment Examples
+
+### M3U-Proxy with External Setup (Recommended){#deployment-recommended}
+
+```yaml
+services:
+  m3u-editor:
+    image: sparkison/m3u-editor:latest
+    container_name: m3u-editor
+    environment:
+      - TZ=Etc/UTC
+      - APP_URL=http://localhost
+      - APP_PORT=36400
+      # Postgres (recommended for performance)
+      - ENABLE_POSTGRES=true
+      - PG_DATABASE=m3ue
+      - PG_USER=m3ue
+      - PG_PASSWORD=changeme
+      - DB_CONNECTION=pgsql
+      - DB_HOST=localhost
+      - DB_PORT=5432
+      - DB_DATABASE=m3ue
+      - DB_USERNAME=m3ue
+      - DB_PASSWORD=changeme
+      # Redis (external)
+      - REDIS_ENABLED=false
+      - REDIS_HOST=redis
+      - REDIS_SERVER_PORT=6379
+      # M3U Proxy (external)
+      - M3U_PROXY_ENABLED=false
+      - M3U_PROXY_HOST=m3u-proxy
+      - M3U_PROXY_PORT=38085
+      - M3U_PROXY_TOKEN=your-secure-token
+    volumes:
+      - ./data:/var/www/config
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+    ports:
+      - 36400:36400
+    networks:
+      - m3u-network
+    depends_on:
+      - m3u-proxy
+      - redis
+
+  m3u-proxy:
+    image: sparkison/m3u-proxy:latest
+    container_name: m3u-proxy
+    environment:
+      - API_TOKEN=your-secure-token  # Must match M3U_PROXY_TOKEN above
+      - PORT=38085
+      - REDIS_ENABLED=true
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_DB=6
+      - ENABLE_REDIS_POOLING=true
+      - LOG_LEVEL=INFO
+    restart: unless-stopped
+    networks:
+      - m3u-network
+    depends_on:
+      - redis
+    # Optional: Hardware acceleration
+    # devices:
+    #   - /dev/dri:/dev/dri
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: unless-stopped
+    networks:
+      - m3u-network
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  m3u-network:
+    driver: bridge
+
+volumes:
+  pgdata:
+  redis_data:
+```
 
 ***
 
