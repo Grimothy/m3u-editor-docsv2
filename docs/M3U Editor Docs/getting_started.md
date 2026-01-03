@@ -16,7 +16,7 @@ M3U Editor Defaults to **Port 36400**. -- **This can be changed in the docker-co
 **Default Password:** admin
 :::
 
-## Pick Your Deployment
+## 🤔 Pick Your Deployment
 
 **M3U-Proxy with External Setup (Recommended)**
 
@@ -33,6 +33,18 @@ Better reliability than SQLite. PostgreSQL container managed by Docker Compose. 
 **External PostgreSQL**
 
 Point m3u-editor to your existing Postgres instance elsewhere.
+
+## 🏷️ Image Versions
+
+M3U Editor is available in the following versions:
+
+|                                               Version                                              |                     Description                     |                  Docker Image                 |
+| :------------------------------------------------------------------------------------------------: | :-------------------------------------------------: | :-------------------------------------------: |
+|       **[sparkison/m3u-editor:latest](https://github.com/sparkison/m3u-editor/tree/master)**       |              Recommended Stable Branch              |    docker pull sparkison/m3u-editor:latest    |
+|          **[sparkison/m3u-editor:dev](https://github.com/sparkison/m3u-editor/tree/dev)**          |             Stable-ish, quick bug fixes             |      docker pull sparkison/m3u-editor:dev     |
+| **[sparkison/m3u-editor:experimental](https://github.com/sparkison/m3u-editor/tree/experimental)** | Bleeding edge features -- **There be dragons here** | docker pull sparkison/m3u-editor:experimental |
+
+## 🐳 Deployment Examples
 
 ***
 
