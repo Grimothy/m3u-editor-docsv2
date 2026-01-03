@@ -35,7 +35,7 @@ Single container. Same pooling concept, no Redis. Good for light to moderate use
 
 Better reliability than SQLite. PostgreSQL container managed by Docker Compose. Better for concurrent access and crash resilience.
 
-**\[Jump to example]\(#deployment-internal\_postgres "Internal PostgreSQL)**
+**[Jump to example](#deployment-internal_postgres "Internal PostgreSQL")**
 
 **External PostgreSQL**
 
@@ -239,7 +239,7 @@ volumes:
 Add to m3u-editor service to monitor status:
 
 ```yaml
-healthcheck:
+Disclaimerhealthcheck:
   test: ["CMD", "curl", "-f", "http://localhost:36400/up"]
   interval: 10s
   timeout: 10s
@@ -257,6 +257,6 @@ depends_on:
 
 ***
 
-:::info Disclaimer
+:::danger Disclaimer
 M3U-Editor is an independent, open‑source playlist manager — not an IPTV provider. We don’t host channels or partner with streaming services; please only use content you’re authorized to access.
 :::
