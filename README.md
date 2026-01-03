@@ -42,5 +42,13 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 
 ---
 
-> Note: Tina CMS (admin) has been removed from this project. The repo no longer includes Tina configuration or build steps.
+### Tina CMS (development only)
+
+**Tina CMS is available for local development only.** The admin UI can be run locally with the dev server (`npm run dev`) and Tina is installed as a `devDependency` so it is not included in production builds. To keep the admin local:
+
+- **Do not** set `NEXT_PUBLIC_TINA_CLIENT_ID` or `TINA_TOKEN` in production. Without credentials, the admin will be read-only or unavailable.
+- Avoid running any `tinacms build` steps in CI or production build pipelines.
+- If you want extra safety, remove or ignore `static/admin` from your deployment artifacts or add a CI step to delete it before deploy.
+
+This ensures editing capabilities are only available on developer machines where Tina is explicitly run.
 
