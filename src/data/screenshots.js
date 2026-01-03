@@ -4,10 +4,10 @@
 export default [
   {
     "src": "/img/screenshots/m3u-editor_dashboard.png",
-    "alt": "M3u Editor Dashboard"
+    "alt": "M3u-Editor Dashboard"
   },
   {
     "src": "/img/screenshots/m3u-editor_playlists.png",
-    "alt": "M3u Editor Playlists"
+    "alt": "M3u-Editor Playlists"
   }
 ];

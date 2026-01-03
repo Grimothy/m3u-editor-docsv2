@@ -16,7 +16,7 @@ export default function Home() {
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <img src="/img/logo.svg" alt="logo" className={styles.logo} />
-          <h1 className="hero__title">M3U Editor</h1>
+          <h1 className="hero__title">M3U-Editor</h1>
           <p className="hero__subtitle">A full-featured IPTV editor — EPG, Xtream API output, series & playlist management, and more.</p>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
             <DownloadBadge />

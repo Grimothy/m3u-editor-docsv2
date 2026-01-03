@@ -10,7 +10,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'M3U Editor',
+  title: 'M3U-Editor',
   tagline: 'A full-featured IPTV editor — EPG, Xtream API output, series & playlist management, and more.',
   favicon: 'img/favicon.ico',
 
@@ -71,9 +71,9 @@ const config = {
         respectPrefersColorScheme: false,
       },
       navbar: {
-        title: 'M3U Editor',
+        title: 'M3U-Editor',
         logo: {
-          alt: 'M3U Editor Logo',
+          alt: 'M3U-Editor Logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -126,7 +126,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} M3U Editor. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} M3U-Editor. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
