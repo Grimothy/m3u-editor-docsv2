@@ -22,21 +22,25 @@ M3U Editor Defaults to **Port 36400**. -- **This can be changed in the docker-co
 
 Multiple concurrent users. Stream pooling: one provider subscription serves multiple viewers via shared connection. Separate containers for app, proxy, and Redis cache.
 
-
-[Jump to example](#deployment-recommended)
-
+**[Jump to example](#deployment-recommended "M3U-Proxy with External Setup")**
 
 **M3U-Proxy Embedded**
 
 Single container. Same pooling concept, no Redis. Good for light to moderate use.
 
+**[Jump to example](#deployment-proxy_embedded "M3U-Proxy with Embedded Proxy Setup")**
+
 **Internal PostgreSQL**
 
 Better reliability than SQLite. PostgreSQL container managed by Docker Compose. Better for concurrent access and crash resilience.
 
+**\[Jump to example]\(#deployment-internal\_postgres "Internal PostgreSQL)**
+
 **External PostgreSQL**
 
 Point m3u-editor to your existing Postgres instance elsewhere.
+
+**[Jump to example](#deployment-external_postgres "External PostgreSQL")**
 
 ## 🏷️ Image Versions
 
@@ -135,6 +139,119 @@ networks:
 volumes:
   pgdata:
   redis_data:
+```
+
+### M3U-Proxy Embedded (Simple Alternative){#deployment-proxy\_embedded}
+
+```yaml
+services:
+  m3u-editor:
+    image: sparkison/m3u-editor:latest
+    container_name: m3u-editor
+    environment:
+      - TZ=Etc/UTC
+      - APP_URL=http://localhost
+      - M3U_PROXY_ENABLED=true
+    volumes:
+      - ./data:/var/www/config
+    restart: unless-stopped
+    ports:
+      - 36400:36400
+
+networks: {}
+```
+
+### Internal PostgreSQL {#deployment-internal\_postgres}
+
+```yaml
+services:
+  m3u-editor:
+    image: sparkison/m3u-editor:latest
+    container_name: m3u-editor
+    environment:
+      - TZ=Etc/UTC
+      - APP_URL=http://localhost
+      - ENABLE_POSTGRES=true
+      - PG_DATABASE=m3ue
+      - PG_USER=m3ue
+      - PG_PASSWORD=changeme
+      - DB_CONNECTION=pgsql
+      - DB_HOST=localhost
+      - DB_PORT=5432
+      - DB_DATABASE=m3ue
+      - DB_USERNAME=m3ue
+      - DB_PASSWORD=changeme
+    volumes:
+      - ./data:/var/www/config
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+    ports:
+      - 36400:36400
+
+networks: {}
+volumes:
+  pgdata:
+```
+
+### External PostgreSQL {#deployment-external\_postgres}
+
+```yaml
+services:
+  m3u-editor:
+    image: sparkison/m3u-editor:latest
+    container_name: m3u-editor
+    environment:
+      - TZ=Etc/UTC
+      - APP_URL=http://localhost
+      - DB_CONNECTION=pgsql
+      - DB_HOST=your-postgres-hostname  # localhost, 192.168.1.50, db.example.com, etc.
+      - DB_PORT=5432
+      - DB_DATABASE=m3ue
+      - DB_USERNAME=m3ue
+      - DB_PASSWORD=changeme
+    volumes:
+      - ./data:/var/www/config
+    restart: unless-stopped
+    ports:
+      - 36400:36400
+
+networks: {}
+```
+
+:::tip
+Change **DB\_HOST** to wherever your PostgreSQL instance is running. Make sure the database and user already exist on that instance.
+:::
+
+### 💾 Data Persistence
+
+Link a volume to **/var/www/config** to persist configurations, database, as well as logs accross container restarts
+
+```yaml
+volumes:
+  - ./data:/var/www/config              # Current directory (common)
+  - /mnt/storage/m3u:/var/www/config    # Absolute path
+  - ~/m3u-editor:/var/www/config        # Home directory
+```
+
+### 🩺 Health Checks
+
+Add to m3u-editor service to monitor status:
+
+```yaml
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost:36400/up"]
+  interval: 10s
+  timeout: 10s
+  retries: 10
+  start_period: 60s
+```
+
+Other containers can wait for m3u-editor to be healthy before starting:
+
+```yaml
+depends_on:
+  m3u-editor:
+    condition: service_healthy
 ```
 
 ***
