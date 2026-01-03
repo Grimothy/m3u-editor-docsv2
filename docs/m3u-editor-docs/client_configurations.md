@@ -1,11 +1,14 @@
 ---
 title: Client Configuration
 sidebar_position: 1
+hide_title: true
 ---
 
 <div style={{ textAlign: 'center', padding: '0 0 2rem 0' }}>
   <img src="/img/logo.png" alt="M3U-Editor logo" style={{ width: '220px', maxWidth: '10%' }} />
 </div>
+
+# Client Configuration
 
 ## Prerequisites
 
